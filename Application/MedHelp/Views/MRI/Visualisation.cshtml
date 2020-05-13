@@ -16,7 +16,8 @@
             url: "@Url.Action("GetMRI","ImageMRI", new { id = @Model.Name, httproute = "API Default" })"
         }).done(function (data) {
             window.imageContent = data;
-            var params = { encodedImages: ['imageContent'] };            papaya.Container.resetViewer(0, params);
+            var params = { encodedImages: ['imageContent'] };
+            papaya.Container.resetViewer(0, params);
         });
     </script>
 }

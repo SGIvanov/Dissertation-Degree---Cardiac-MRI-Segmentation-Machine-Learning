@@ -18,7 +18,7 @@ namespace MedHelp.Controllers
         public ActionResult Index(HttpPostedFileBase file)
         {
 
-            if (file.ContentLength > 0)
+            if (file!= null && file.ContentLength > 0)
             {
                 var fileName = Path.GetFileName(file.FileName);
                 var path = Path.Combine(Server.MapPath("~/Commands/Algorithm/testing"), "testing_axial_full_pat10.nii.gz");
@@ -44,8 +44,8 @@ namespace MedHelp.Controllers
             if (process.HasExited)
             {
                 process.Close();
-                String file = Server.MapPath("~/Commands/Algorithm/models/testing/" + "window_seg_pat10__segmentation_niftynet.nii.gz");
-                String mimeType = MimeMapping.GetMimeMapping(file);
+                var file = Server.MapPath("~/Commands/Algorithm/models/testing/" + "window_seg_pat10__segmentation_niftynet.nii.gz");
+                var mimeType = MimeMapping.GetMimeMapping(file);
 
                 byte[] stream = System.IO.File.ReadAllBytes(file);
                 return File(stream, mimeType);
