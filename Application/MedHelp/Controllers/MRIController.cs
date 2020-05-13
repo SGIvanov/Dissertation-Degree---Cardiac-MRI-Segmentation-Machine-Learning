@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using MedHelp.Models;
+using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
 namespace MedHelp.Controllers
 {
-    public class HomeController : Controller
+    public class MRIController : Controller
     {
         public ActionResult Index()
         {
@@ -54,6 +53,9 @@ namespace MedHelp.Controllers
             return null;
         }
 
-
+        public ActionResult Visualisation(string id)
+        {
+            return View(new MRIResult { Id = id, Name = id });
+        }
     }
 }
