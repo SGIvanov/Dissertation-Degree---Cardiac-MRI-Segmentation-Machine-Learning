@@ -71,6 +71,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MRIImage.tt</DependentUpon>
     </Compile>
+    <Compile Include="Services\MRIImageApplicationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

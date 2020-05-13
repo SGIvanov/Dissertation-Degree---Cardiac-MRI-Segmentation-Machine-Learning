@@ -5,9 +5,9 @@ using System.Linq;
 
 namespace MedHelp.Helpers
 {
-    public class Mapper
+    public static class Mapper
     {
-        public MRIImageViewModel MapMRIDtoEntityToViewModel(MRIImage image)
+        public static MRIImageViewModel MapMRIDtoEntityToViewModel(MRIImage image)
         {
             return new MRIImageViewModel
             {
@@ -18,12 +18,12 @@ namespace MedHelp.Helpers
             };
         }
 
-        public IList<MRIImageViewModel> MapMRIDtoListToViewModel(IList<MRIImage> images)
+        public static IList<MRIImageViewModel> MapMRIDtoListToViewModel(IList<MRIImage> images)
         {
             return images.Select(MapMRIDtoEntityToViewModel).ToList();
         }
 
-        public MRIImage MapMRIViewModelEntityToDto(MRIImageViewModel viewModel)
+        public static MRIImage MapMRIViewModelEntityToDto(MRIImageViewModel viewModel)
         {
             return new MRIImage
             {
@@ -34,7 +34,7 @@ namespace MedHelp.Helpers
             };
         }
 
-        public IList<MRIImage> MapMRIViewModelListToDto(IList<MRIImageViewModel> viewModels)
+        public static IList<MRIImage> MapMRIViewModelListToDto(IList<MRIImageViewModel> viewModels)
         {
             return viewModels.Select(MapMRIViewModelEntityToDto).ToList();
         }
