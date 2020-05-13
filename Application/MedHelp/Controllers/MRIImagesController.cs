@@ -18,7 +18,7 @@ namespace MedHelp.Controllers
         // GET: MRIImages
         public async Task<ActionResult> Index()
         {
-            var mRIImages = db.MRIImages.Include(m => m.MRIImage2);
+            var mRIImages = db.MRIImages.Where(m => m.FullScanId != null).Include(m => m.MRIImage2);
             return View(await mRIImages.ToListAsync());
         }
 

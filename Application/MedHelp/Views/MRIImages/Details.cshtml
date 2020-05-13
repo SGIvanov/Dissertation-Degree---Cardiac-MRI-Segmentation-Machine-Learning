@@ -7,11 +7,11 @@
 <h2>Details</h2>
 
 <div>
-    <h4>MRIImage</h4>
+    <h4>@Model.Name</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id })
         </dt>
 
         <dd>
@@ -25,15 +25,6 @@
         <dd>
             @Html.DisplayFor(model => model.UploadedDate)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Image)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Image)
-        </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.MRIImage2.Name)
         </dt>
