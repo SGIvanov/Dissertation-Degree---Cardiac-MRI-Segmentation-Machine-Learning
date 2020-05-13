@@ -11,7 +11,8 @@ namespace MedHelp.Infrastructure.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class MRIImage
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,6 +23,7 @@ namespace MedHelp.Infrastructure.Models
     
         public decimal Id { get; set; }
         public string Name { get; set; }
+        [Display(Name = "Uploaded Date")]
         public System.DateTime UploadedDate { get; set; }
         public Nullable<decimal> FullScanId { get; set; }
         public string Image { get; set; }
