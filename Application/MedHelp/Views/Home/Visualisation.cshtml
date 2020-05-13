@@ -1,0 +1,23 @@
+﻿@model  MedHelp.Infrastructure.Models.MRIImage
+@{
+    ViewBag.Title = "Visualisation";
+}
+
+<h2>Visualisation</h2>
+
+<div class="papaya" data-params="params"></div>
+
+@section scripts{
+    <script type="text/javascript">
+        var params = [];
+        params["encodedImages"] = [];
+        $.ajax({
+            type: "GET",
+            url: "@Url.Action("GetMRI", "MriApi", new { id = @Model.Name, httproute = "API Default" })"
+        }).done(function (data) {
+            window.imageContent = data;
+            var params = { encodedImages: ['imageContent'] };
+            papaya.Container.resetViewer(0, params);
+        });
+    </script>
+}

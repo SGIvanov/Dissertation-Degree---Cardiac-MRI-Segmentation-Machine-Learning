@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MRIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MRIImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UploadedDate" Type="datetime" Nullable="false" />
+          <Property Name="FullScanId" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Image" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__MRIImage__FullSc__48CFD27E">
+          <End Role="MRIImage" Type="Self.MRIImage" Multiplicity="0..1" />
+          <End Role="MRIImage1" Type="Self.MRIImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MRIImage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MRIImage1">
+              <PropertyRef Name="FullScanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MRIModelStoreContainer">
+          <EntitySet Name="MRIImage" EntityType="Self.MRIImage" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__MRIImage__FullSc__48CFD27E" Association="Self.FK__MRIImage__FullSc__48CFD27E">
+            <End Role="MRIImage" EntitySet="MRIImage" />
+            <End Role="MRIImage1" EntitySet="MRIImage" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MRIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MRIImage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="UploadedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FullScanId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MRIImage1" Relationship="Self.FK__MRIImage__FullSc__48CFD27E" FromRole="MRIImage" ToRole="MRIImage1" />
+          <NavigationProperty Name="MRIImage2" Relationship="Self.FK__MRIImage__FullSc__48CFD27E" FromRole="MRIImage1" ToRole="MRIImage" />
+        </EntityType>
+        <Association Name="FK__MRIImage__FullSc__48CFD27E">
+          <End Role="MRIImage" Type="Self.MRIImage" Multiplicity="0..1" />
+          <End Role="MRIImage1" Type="Self.MRIImage" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MRIImage">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MRIImage1">
+              <PropertyRef Name="FullScanId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MRIEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MRIImages" EntityType="Self.MRIImage" />
+          <AssociationSet Name="FK__MRIImage__FullSc__48CFD27E" Association="Self.FK__MRIImage__FullSc__48CFD27E">
+            <End Role="MRIImage" EntitySet="MRIImages" />
+            <End Role="MRIImage1" EntitySet="MRIImages" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MRIModelStoreContainer" CdmEntityContainer="MRIEntities">
+          <EntitySetMapping Name="MRIImages">
+            <EntityTypeMapping TypeName="MRIModel.MRIImage">
+              <MappingFragment StoreEntitySet="MRIImage">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="UploadedDate" ColumnName="UploadedDate" />
+                <ScalarProperty Name="FullScanId" ColumnName="FullScanId" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
