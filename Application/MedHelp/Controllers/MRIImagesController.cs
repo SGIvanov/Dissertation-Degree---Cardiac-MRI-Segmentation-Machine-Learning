@@ -54,32 +54,33 @@ namespace MedHelp.Controllers
 
         public async Task<ActionResult> Edit(decimal id)
         {
-            MRIImage mRIImage = await db.MRIImages.FindAsync(id);
-            if (mRIImage == null)
+            var mriDto = await mriImageService.FindMRIById(id);
+            var mriView = Mapper.MapMRIDtoEntityToViewModel(mriDto);
+            if (mriView == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.FullScanId = new SelectList(db.MRIImages, "Id", "Name", mRIImage.FullScanId);
-            return View(mRIImage);
+            return View(mriView);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,UploadedDate,FullScanId,Image")] MRIImage mRIImage)
+        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,UploadedDate")] MRIImageViewModel mRIImage)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(mRIImage).State = EntityState.Modified;
-                await db.SaveChangesAsync();
+                var mriDto = Mapper.MapMRIViewModelEntityToDto(mRIImage);
+                await mriImageService.EditMri(mriDto);
                 return RedirectToAction("Index");
             }
-            ViewBag.FullScanId = new SelectList(db.MRIImages, "Id", "Name", mRIImage.FullScanId);
+
             return View(mRIImage);
         }
 
         public async Task<ActionResult> Delete(decimal id)
         {
-            MRIImage mRIImage = await db.MRIImages.FindAsync(id);
+            var mriDto = await mriImageService.FindMRIById(id);
+            var mRIImage = Mapper.MapMRIDtoEntityToViewModel(mriDto);
             if (mRIImage == null)
             {
                 return HttpNotFound();
@@ -91,9 +92,8 @@ namespace MedHelp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> DeleteConfirmed(decimal id)
         {
-            MRIImage mRIImage = await db.MRIImages.FindAsync(id);
-            db.MRIImages.Remove(mRIImage);
-            await db.SaveChangesAsync();
+            MRIImage mRIImage = await mriImageService.FindMRIById(id);
+            await mriImageService.DeleteMri(mRIImage);
             return RedirectToAction("Index");
         }
 
@@ -101,7 +101,7 @@ namespace MedHelp.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                mriImageService.Dispose(disposing);
             }
             base.Dispose(disposing);
         }

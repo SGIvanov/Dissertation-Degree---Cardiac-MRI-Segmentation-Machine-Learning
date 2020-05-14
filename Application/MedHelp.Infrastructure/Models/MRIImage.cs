@@ -23,7 +23,6 @@ namespace MedHelp.Infrastructure.Models
     
         public decimal Id { get; set; }
         public string Name { get; set; }
-        [Display(Name = "Uploaded Date")]
         public System.DateTime UploadedDate { get; set; }
         public Nullable<decimal> FullScanId { get; set; }
         public string Image { get; set; }

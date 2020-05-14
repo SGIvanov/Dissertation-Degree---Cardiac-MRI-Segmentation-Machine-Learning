@@ -35,5 +35,25 @@ namespace MedHelp.Infrastructure
             db.MRIImages.Add(image);
             await db.SaveChangesAsync();
         }
+
+        public async Task EditMri(MRIImage image)
+        {
+            db.Entry(image).State = EntityState.Modified;
+            await db.SaveChangesAsync();
+        }
+
+        public async Task DeleteMri(MRIImage image)
+        {
+            db.MRIImages.Remove(image);
+            await db.SaveChangesAsync();
+        }
+
+        public void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+        }
     }
 }
