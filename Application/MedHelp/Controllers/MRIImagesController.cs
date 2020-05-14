@@ -1,7 +1,10 @@
-﻿using System.Data;
+﻿using System;
+using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 using MedHelp.Helpers;
 using MedHelp.Infrastructure;
@@ -40,41 +43,33 @@ namespace MedHelp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Name,UploadedDate")] MRIImageViewModel mRIImage)
+        public FileContentResult Create(HttpPostedFileBase file)
         {
-            if (ModelState.IsValid)
+            if (file != null && file.ContentLength > 0)
             {
-                var mriDto = Mapper.MapMRIViewModelEntityToDto(mRIImage);
-                await mriImageService.SaveMri(mriDto);
-                return RedirectToAction("Index");
+                var mriImage = new MRIImage
+                {
+                    Name = Path.GetFileName(file.FileName),
+                    UploadedDate = DateTime.Now
+                };
+                var path = Path.Combine(Server.MapPath("~/Commands/Algorithm/testing"), "testing_axial_full_pat10.nii.gz");
+                file.SaveAs(path);
+                var bytes = System.IO.File.ReadAllBytes(path);
+                mriImage.Image = Convert.ToBase64String(bytes);
+
+                var resultFileName = mriImageService.ExecuteSegmentation(mriImage);
+
+                if (!string.IsNullOrEmpty(resultFileName))
+                {
+                    var fileName = Server.MapPath("~/Commands/Algorithm/models/testing/" + resultFileName);
+                    var mimeType = MimeMapping.GetMimeMapping(fileName);
+                    byte[] stream = System.IO.File.ReadAllBytes(fileName);
+                    return File(stream, mimeType, mriImage.Name + " Segmented");
+                }
+                return null;
             }
 
-            return View(mRIImage);
-        }
-
-        public async Task<ActionResult> Edit(decimal id)
-        {
-            var mriDto = await mriImageService.FindMRIById(id);
-            var mriView = Mapper.MapMRIDtoEntityToViewModel(mriDto);
-            if (mriView == null)
-            {
-                return HttpNotFound();
-            }
-            return View(mriView);
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "Id,Name,UploadedDate")] MRIImageViewModel mRIImage)
-        {
-            if (ModelState.IsValid)
-            {
-                var mriDto = Mapper.MapMRIViewModelEntityToDto(mRIImage);
-                await mriImageService.EditMri(mriDto);
-                return RedirectToAction("Index");
-            }
-
-            return View(mRIImage);
+            return null;
         }
 
         public async Task<ActionResult> Delete(decimal id)

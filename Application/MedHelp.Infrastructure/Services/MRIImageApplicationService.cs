@@ -1,8 +1,11 @@
 ﻿using MedHelp.Infrastructure.Models;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace MedHelp.Infrastructure
 {
@@ -54,6 +57,27 @@ namespace MedHelp.Infrastructure
             {
                 db.Dispose();
             }
+        }
+
+        public string ExecuteSegmentation(MRIImage file)
+        {
+            var processInfo = new ProcessStartInfo("cmd.exe", @"/c D:\ITSGFork\StudProjects\team00\WebApp\MedHelp\Commands\HeartMri.bat")
+            {
+                CreateNoWindow = true,
+                UseShellExecute = false
+            };
+
+            var process = Process.Start(processInfo);
+
+            process.Start();
+
+            process.WaitForExit();
+            if (process.HasExited)
+            {
+                process.Close();
+                return "window_seg_pat10__segmentation_niftynet.nii.gz";
+            }
+            return null;
         }
     }
 }

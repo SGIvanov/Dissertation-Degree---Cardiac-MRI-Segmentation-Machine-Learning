@@ -13,7 +13,10 @@
   "dependencies": {
     "bootstrap": "^4.5.0",
     "bootstrap-less": "^3.3.8",
+    "eonasdan-bootstrap-datetimepicker": "^4.17.47",
     "jquery": "^3.5.1",
+    "jquery-datetimepicker": "^2.5.21",
+    "jquery-ui": "^1.12.1",
     "jquery-validation": "^1.19.1",
     "jquery-validation-unobtrusive": "^3.2.11",
     "papaya-viewer": "^1.0.1449"

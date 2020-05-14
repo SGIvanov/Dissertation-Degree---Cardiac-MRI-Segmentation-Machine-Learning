@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MedHelp.Infrastructure.Models.MRIImageViewModel>
+﻿@model IEnumerable<MedHelp.Models.MRIImageViewModel>
 
 @{
     ViewBag.Title = "Index";
@@ -35,7 +35,6 @@
             @Html.ActionLink(@Html.DisplayFor(modelItem => item.Name).ToHtmlString(), "Details", new { id = item.FullScanId })
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.Id })
         </td>
     </tr>
