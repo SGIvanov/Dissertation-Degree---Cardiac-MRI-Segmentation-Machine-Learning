@@ -180,7 +180,6 @@
     <Content Include="tsconfig.json" />
     <Content Include="src\index.less" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\Visualisation.cshtml" />
     <Content Include="Views\MRIImages\Create.cshtml" />
     <Content Include="Views\MRIImages\Delete.cshtml" />
     <Content Include="Views\MRIImages\Details.cshtml" />

@@ -1,43 +1,59 @@
 ﻿@model IEnumerable<MedHelp.Models.MRIImageViewModel>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "MRIs";
 }
 
-<h2>Index</h2>
+<h2>My MRIs</h2>
 
 <p>
     @Html.ActionLink("Create New Segmentation", "Create")
 </p>
-<table class="table">
-    <tr>
-        <th>
-            Segmentation @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.UploadedDate)
-        </th>
-        <th>
-            Full MRI @Html.DisplayNameFor(model => model.MRIImage2.Name)
-        </th>
-        <th></th>
-    </tr>
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.UploadedDate)
+            </th>
+            <th scope="col">
+                @Html.DisplayNameFor(model => model.FullScanName)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.ActionLink(@Html.DisplayFor(modelItem => item.Name).ToHtmlString(), "Details", new { id = item.Id })
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UploadedDate)
-        </td>
-        <td>
-            @Html.ActionLink(@Html.DisplayFor(modelItem => item.Name).ToHtmlString(), "Details", new { id = item.FullScanId })
-        </td>
-        <td>
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
-        </td>
-    </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td th scope="row">
+                    @Html.DisplayFor(modelItem => (int)item.Id)
+                </td>
+                <td>
+                    @Html.ActionLink(@Html.DisplayFor(modelItem => item.Name).ToHtmlString(), "Details", new { id = item.Id })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UploadedDate)
+                </td>
+                <td>
+                    @if (item.FullScanId != null)
+                    {
+                        @Html.ActionLink(@Html.DisplayFor(modelItem => item.FullScanName).ToHtmlString(), "Details", new { id = item.FullScanId })
+                    }
+                    else
+                    {
+                        <text>N/A</text>
+                    }
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
 
-</table>
+    </table>
+</div>

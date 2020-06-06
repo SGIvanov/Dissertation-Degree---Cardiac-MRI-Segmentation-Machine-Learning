@@ -51,10 +51,5 @@ namespace MedHelp.Controllers
             }
             return null;
         }
-
-        public ActionResult Visualisation(string id)
-        {
-            return View(new MRIImage { Name = id });
-        }
     }
 }

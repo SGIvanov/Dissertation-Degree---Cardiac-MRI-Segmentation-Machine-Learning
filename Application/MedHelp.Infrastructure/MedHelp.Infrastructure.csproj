@@ -86,7 +86,6 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Content Include="Models\MRIImage.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

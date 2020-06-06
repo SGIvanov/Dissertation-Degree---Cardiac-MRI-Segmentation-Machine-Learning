@@ -4,7 +4,7 @@
     <Key>
       <PropertyRef Name="Id" />
     </Key>
-    <Property Name="Id" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="Id" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="UploadedDate" Type="datetime" Nullable="false" />
     <Property Name="FullScanId" Type="decimal" Precision="18" Scale="0" />

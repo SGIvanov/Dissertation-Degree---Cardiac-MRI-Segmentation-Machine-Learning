@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="MedHelp.Infrastructure.Models.MRIImage">
+    <Position X="15.5" Y="7.25" Width="3.25" />
+    <TypeIdentifier />
+    <ShowAsAssociation>
+      <Property Name="MRIImage2" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MedHelp.Infrastructure.MRIImageApplicationService">
+    <Position X="15" Y="4.5" Width="3.75" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="MedHelp.Controllers.HomeController">
+    <Position X="9" Y="7.25" Width="4" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAEAAQAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedHelp.Controllers.MriApiController">
+    <Position X="12.75" Y="4.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\MriApiController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedHelp.Controllers.MRIImagesController">
+    <Position X="9" Y="4.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACABAACAAAAAAAAAAAEAAEAAAAEBAAAAAAA=</HashCode>
+      <FileName>Controllers\MRIImagesController.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="mriImageService" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="MedHelp.Helpers.Mapper">
+    <Position X="9" Y="2.25" Width="5.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAIAABAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>Helpers\Mapper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MedHelp.Models.MRIImageViewModel">
+    <Position X="16" Y="2.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAiAAAAAAAAgAAAAAAAAASAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\MRIImageViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

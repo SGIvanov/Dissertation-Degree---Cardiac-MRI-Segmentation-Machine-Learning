@@ -11,11 +11,11 @@ namespace MedHelp.Infrastructure
 {
     public class MRIImageApplicationService
     {
-        private readonly MRIEntities db;
+        private readonly Entities db;
 
         public MRIImageApplicationService()
         {
-            db = new MRIEntities();
+            db = new Entities();
         }
 
         public async Task<IList<MRIImage>> GetAllMRIImages()
@@ -23,20 +23,15 @@ namespace MedHelp.Infrastructure
             return await db.MRIImages.ToListAsync();
         }
 
-        public async Task<IList<MRIImage>> GetSegmentationMRIImages()
-        {
-            return await db.MRIImages.Where(m => m.FullScanId != null).ToListAsync();
-        }
-
         public async Task<MRIImage> FindMRIById(decimal id)
         {
             return await db.MRIImages.FindAsync(id);
         }
 
-        public async Task SaveMri(MRIImage image)
+        public void SaveMri(MRIImage image)
         {
             db.MRIImages.Add(image);
-            await db.SaveChangesAsync();
+            db.SaveChanges();
         }
 
         public async Task EditMri(MRIImage image)

@@ -4,41 +4,28 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Details and Visualization</h2> @Html.ActionLink("Back to List", "Index")
 
 <div>
-    <h4>@Model.Name</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            Segmentation @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.UploadedDate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.UploadedDate)
-        </dd>
-        @if (@Model.FullScanId != null)
-        {
-            <dt>
-                Full Scan @Html.DisplayNameFor(model => model.MRIImage2.Name)
-            </dt>
-
-            <dd>
-                @Html.DisplayFor(model => model.MRIImage2.Name)
-            </dd>
-        }
-
-    </dl>
+    Segmentation @Html.DisplayNameFor(model => model.Name) : @Html.DisplayFor(model => model.Name)
+    <br />
+    @Html.DisplayNameFor(model => model.UploadedDate) @Html.DisplayFor(model => model.UploadedDate)
+    <hr />
+    <div class="papaya" data-params="params"></div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+@section scripts{
+    <script type="text/javascript">
+        var params = [];
+        params["encodedImages"] = [];
+        $.ajax({
+            type: "GET",
+            url: "@Url.Action("GetMRI", "MriApi", new { id = @Model.Id, httproute = "API Default" })"
+        }).done(function (data) {
+            window.MRI = data;
+            var params = { encodedImages: ['MRI'] };
+            papaya.Container.resetViewer(0, params);
+        });
+    </script>
+}

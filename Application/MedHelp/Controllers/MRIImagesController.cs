@@ -20,7 +20,7 @@ namespace MedHelp.Controllers
         // GET: MRIImages
         public async Task<ActionResult> Index()
         {
-            var mRIDtoImages = await mriImageService.GetSegmentationMRIImages();
+            var mRIDtoImages = await mriImageService.GetAllMRIImages();
             var mRIViewModels = Mapper.MapMRIDtoListToViewModel(mRIDtoImages);
             return View(mRIViewModels);
         }
@@ -43,7 +43,7 @@ namespace MedHelp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public FileContentResult Create(HttpPostedFileBase file)
+        public ActionResult Create(HttpPostedFileBase file)
         {
             if (file != null && file.ContentLength > 0)
             {
@@ -54,22 +54,24 @@ namespace MedHelp.Controllers
                 };
                 var path = Path.Combine(Server.MapPath("~/Commands/Algorithm/testing"), "testing_axial_full_pat10.nii.gz");
                 file.SaveAs(path);
-                var bytes = System.IO.File.ReadAllBytes(path);
-                mriImage.Image = Convert.ToBase64String(bytes);
+                path = Path.Combine(Server.MapPath("~/MRI"), file.FileName);
+                mriImage.Image = path;
+                mriImageService.SaveMri(mriImage);
+                //Task.Run(async () =>
+                //{
+                //    mriImageService.ExecuteSegmentation(mriImage);
+                //});
 
-                var resultFileName = mriImageService.ExecuteSegmentation(mriImage);
-
-                if (!string.IsNullOrEmpty(resultFileName))
-                {
-                    var fileName = Server.MapPath("~/Commands/Algorithm/models/testing/" + resultFileName);
-                    var mimeType = MimeMapping.GetMimeMapping(fileName);
-                    byte[] stream = System.IO.File.ReadAllBytes(fileName);
-                    return File(stream, mimeType, mriImage.Name + " Segmented");
-                }
-                return null;
+                //if (!string.IsNullOrEmpty(resultFileName))
+                //{
+                //    var fileName = Server.MapPath("~/Commands/Algorithm/models/testing/" + resultFileName);
+                //    var mimeType = MimeMapping.GetMimeMapping(fileName);
+                //    byte[] stream = System.IO.File.ReadAllBytes(fileName);
+                //}
+                return RedirectToAction("Index");
             }
 
-            return null;
+            return View();
         }
 
         public async Task<ActionResult> Delete(decimal id)
