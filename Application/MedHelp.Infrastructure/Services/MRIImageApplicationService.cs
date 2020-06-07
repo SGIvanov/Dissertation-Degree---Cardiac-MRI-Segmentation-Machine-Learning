@@ -1,21 +1,20 @@
 ﻿using MedHelp.Infrastructure.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 
 namespace MedHelp.Infrastructure
 {
     public class MRIImageApplicationService
     {
-        private readonly Entities db;
+        private readonly MRIEntities db;
 
         public MRIImageApplicationService()
         {
-            db = new Entities();
+            db = new MRIEntities();
         }
 
         public async Task<IList<MRIImage>> GetAllMRIImages()
@@ -73,6 +72,17 @@ namespace MedHelp.Infrastructure
                 return "window_seg_pat10__segmentation_niftynet.nii.gz";
             }
             return null;
+        }
+
+        public string LoadMriFromPath(string fullPath)
+        {
+            var bytes = File.ReadAllBytes(fullPath);
+            var base64 = Convert.ToBase64String(bytes);
+            if (string.IsNullOrEmpty(base64))
+            {
+                throw new FileNotFoundException();
+            }
+            return base64;
         }
     }
 }

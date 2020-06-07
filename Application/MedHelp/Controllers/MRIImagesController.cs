@@ -1,15 +1,11 @@
 ﻿using System;
-using System.Data;
-using System.Data.Entity;
 using System.IO;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using MedHelp.Helpers;
 using MedHelp.Infrastructure;
 using MedHelp.Infrastructure.Models;
-using MedHelp.Models;
 
 namespace MedHelp.Controllers
 {
@@ -74,7 +70,7 @@ namespace MedHelp.Controllers
             return View();
         }
 
-        public async Task<ActionResult> Delete(decimal id)
+        public async Task<ActionResult> Delete(int id)
         {
             var mriDto = await mriImageService.FindMRIById(id);
             var mRIImage = Mapper.MapMRIDtoEntityToViewModel(mriDto);
@@ -87,11 +83,25 @@ namespace MedHelp.Controllers
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(decimal id)
+        public async Task<ActionResult> DeleteConfirmed(int id)
         {
             MRIImage mRIImage = await mriImageService.FindMRIById(id);
             await mriImageService.DeleteMri(mRIImage);
             return RedirectToAction("Index");
+        }
+
+        [HttpGet, ActionName("Download")]
+        public async Task<FileContentResult> Download(int id)
+        {
+            var mRIDtoImage = await mriImageService.FindMRIById(id);
+            if (mRIDtoImage == null)
+            {
+                return null;
+            }
+            var file = Server.MapPath($"~/data/{mRIDtoImage.Id}.nii.gz");
+            var mimeType = MimeMapping.GetMimeMapping(file);
+            byte[] stream = System.IO.File.ReadAllBytes(file);
+            return File(stream, mimeType, mRIDtoImage.Name);
         }
 
         protected override void Dispose(bool disposing)

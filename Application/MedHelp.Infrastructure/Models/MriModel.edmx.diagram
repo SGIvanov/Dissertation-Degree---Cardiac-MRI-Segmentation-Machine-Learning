@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="34a2311543ad41e686e420cf64df687a" Name="Diagram1">
+      <Diagram DiagramId="d34adc1c718249b28113745cfed6b914" Name="Diagram1">
         <EntityTypeShape EntityType="MRIModel.MRIImage" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="MRIModel.FK__MRIImage__FullSc__48CFD27E" ManuallyRouted="false" />
       </Diagram>

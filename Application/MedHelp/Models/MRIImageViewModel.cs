@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.IO;
 
 namespace MedHelp.Models
 {
@@ -14,7 +13,7 @@ namespace MedHelp.Models
         [Display(Name = "Uploaded Date")]
         public DateTime UploadedDate { get; set; }
 
-        public decimal? FullScanId { get; set; }
+        public int? FullScanId { get; set; }
 
         public string Image { get; set; }
 

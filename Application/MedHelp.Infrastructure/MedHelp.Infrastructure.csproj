@@ -54,52 +54,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\MRIImage.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>MRIImage.Context.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\MRIImage.cs">
-      <DependentUpon>MRIImage.tt</DependentUpon>
+      <DependentUpon>MriModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MRIImage.Designer.cs">
+    <Compile Include="Models\MriModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MRIImage.edmx</DependentUpon>
+      <DependentUpon>MriModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MRIImage1.cs">
+    <Compile Include="Models\MriModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MRIImage.tt</DependentUpon>
+      <DependentUpon>MriModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MriModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MriModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Services\MRIImageApplicationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <EntityDeploy Include="Models\MRIImage.edmx">
+    <EntityDeploy Include="Models\MriModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>MRIImage.Designer.cs</LastGenOutput>
+      <LastGenOutput>MriModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Models\MRIImage.edmx.diagram">
-      <DependentUpon>MRIImage.edmx</DependentUpon>
+    <None Include="Models\MriModel.edmx.diagram">
+      <DependentUpon>MriModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\MRIImage.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MRIImage.edmx</DependentUpon>
-      <LastGenOutput>MRIImage.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\MRIImage.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>MRIImage.edmx</DependentUpon>
-      <LastGenOutput>MRIImage1.cs</LastGenOutput>
-    </Content>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Content Include="Models\MriModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MriModel.edmx</DependentUpon>
+      <LastGenOutput>MriModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\MriModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MriModel.edmx</DependentUpon>
+      <LastGenOutput>MriModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

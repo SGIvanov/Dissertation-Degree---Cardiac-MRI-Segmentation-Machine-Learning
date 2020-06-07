@@ -9,10 +9,10 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="decimal" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="UploadedDate" Type="datetime" Nullable="false" />
-          <Property Name="FullScanId" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="FullScanId" Type="int" />
           <Property Name="Image" Type="varchar(max)" Nullable="false" />
         </EntityType>
         <Association Name="FK__MRIImage__FullSc__48CFD27E">
@@ -43,10 +43,10 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UploadedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="FullScanId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="FullScanId" Type="Int32" />
           <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="MRIImage1" Relationship="Self.FK__MRIImage__FullSc__48CFD27E" FromRole="MRIImage" ToRole="MRIImage1" />
           <NavigationProperty Name="MRIImage2" Relationship="Self.FK__MRIImage__FullSc__48CFD27E" FromRole="MRIImage1" ToRole="MRIImage" />
@@ -63,7 +63,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MRIEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="MRIImages" EntityType="Self.MRIImage" />
           <AssociationSet Name="FK__MRIImage__FullSc__48CFD27E" Association="Self.FK__MRIImage__FullSc__48CFD27E">
             <End Role="MRIImage" EntitySet="MRIImages" />
@@ -75,7 +75,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MRIModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="MRIModelStoreContainer" CdmEntityContainer="MRIEntities">
           <EntitySetMapping Name="MRIImages">
             <EntityTypeMapping TypeName="MRIModel.MRIImage">
               <MappingFragment StoreEntitySet="MRIImage">

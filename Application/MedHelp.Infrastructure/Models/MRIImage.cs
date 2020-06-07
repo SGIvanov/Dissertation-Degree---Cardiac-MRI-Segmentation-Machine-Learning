@@ -20,10 +20,10 @@ namespace MedHelp.Infrastructure.Models
             this.MRIImage1 = new HashSet<MRIImage>();
         }
     
-        public decimal Id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public System.DateTime UploadedDate { get; set; }
-        public Nullable<decimal> FullScanId { get; set; }
+        public Nullable<int> FullScanId { get; set; }
         public string Image { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

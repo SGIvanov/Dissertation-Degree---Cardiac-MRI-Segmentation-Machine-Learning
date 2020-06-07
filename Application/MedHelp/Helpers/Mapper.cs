@@ -12,7 +12,7 @@ namespace MedHelp.Helpers
             return new MRIImageViewModel
             {
                 FullScanId = image.FullScanId,
-                Id = (int)image.Id,
+                Id = image.Id,
                 Name = image.Name,
                 UploadedDate = image.UploadedDate,
                 FullScanName = image.MRIImage2?.Name
