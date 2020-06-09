@@ -22,7 +22,7 @@ namespace MedHelp.Infrastructure.Models
     
         public int Id { get; set; }
         public string Name { get; set; }
-        public System.DateTime UploadedDate { get; set; }
+        public Nullable<System.DateTime> UploadedDate { get; set; }
         public Nullable<int> FullScanId { get; set; }
         public string Image { get; set; }
     

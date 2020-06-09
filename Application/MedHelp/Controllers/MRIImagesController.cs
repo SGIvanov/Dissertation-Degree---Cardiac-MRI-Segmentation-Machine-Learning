@@ -1,6 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using MedHelp.Helpers;
@@ -39,31 +37,27 @@ namespace MedHelp.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(HttpPostedFileBase file)
+        public async Task<ActionResult> Create(HttpPostedFileBase file)
         {
             if (file != null && file.ContentLength > 0)
             {
-                var mriImage = new MRIImage
-                {
-                    Name = Path.GetFileName(file.FileName),
-                    UploadedDate = DateTime.Now
-                };
-                var path = Path.Combine(Server.MapPath("~/Commands/Algorithm/testing"), "testing_axial_full_pat10.nii.gz");
-                file.SaveAs(path);
-                path = Path.Combine(Server.MapPath("~/MRI"), file.FileName);
-                mriImage.Image = path;
-                mriImageService.SaveMri(mriImage);
-                //Task.Run(async () =>
-                //{
-                //    mriImageService.ExecuteSegmentation(mriImage);
-                //});
+                var mriParentImage =await mriImageService.SaveImageForSegmentation
+                    (file,
+                    Server.MapPath("~/Commands/Algorithm/testing"),
+                    Server.MapPath("~/data"));
 
-                //if (!string.IsNullOrEmpty(resultFileName))
-                //{
-                //    var fileName = Server.MapPath("~/Commands/Algorithm/models/testing/" + resultFileName);
-                //    var mimeType = MimeMapping.GetMimeMapping(fileName);
-                //    byte[] stream = System.IO.File.ReadAllBytes(fileName);
-                //}
+                _ =  Task.Run(async () =>
+                  {
+                      var successfulySegmented = mriImageService.ExecuteSegmentation(mriParentImage);
+                      if (successfulySegmented)
+                      {
+                          await mriImageService.SaveSegmentedImage(
+                              mriParentImage,
+                              Server.MapPath("~/Commands/Algorithm/models/testing"),
+                              Server.MapPath("~/data"));
+                      }
+                  });
+
                 return RedirectToAction("Index");
             }
 

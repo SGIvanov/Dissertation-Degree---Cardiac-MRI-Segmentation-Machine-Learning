@@ -9,4 +9,3 @@ D:\Dissertation\Application\MedHelp.Infrastructure\obj\Debug\MedHelp.Infrastruct
 D:\Dissertation\Application\MedHelp.Infrastructure\obj\Debug\MedHelp.Infrastructure.csproj.CopyComplete
 D:\Dissertation\Application\MedHelp.Infrastructure\obj\Debug\MedHelp.Infrastructure.dll
 D:\Dissertation\Application\MedHelp.Infrastructure\obj\Debug\MedHelp.Infrastructure.pdb
-D:\Dissertation\Application\MedHelp.Infrastructure\obj\Debug\MedHelp.Infrastructure.csprojAssemblyReference.cache

@@ -4,17 +4,19 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace MedHelp.Infrastructure
 {
     public class MRIImageApplicationService
     {
-        private readonly MRIEntities db;
+        private Entities db;
 
         public MRIImageApplicationService()
         {
-            db = new MRIEntities();
+            db = new Entities();
         }
 
         public async Task<IList<MRIImage>> GetAllMRIImages()
@@ -27,10 +29,10 @@ namespace MedHelp.Infrastructure
             return await db.MRIImages.FindAsync(id);
         }
 
-        public void SaveMri(MRIImage image)
+        public async Task SaveMri(MRIImage image)
         {
             db.MRIImages.Add(image);
-            db.SaveChanges();
+            await db.SaveChangesAsync();
         }
 
         public async Task EditMri(MRIImage image)
@@ -53,9 +55,9 @@ namespace MedHelp.Infrastructure
             }
         }
 
-        public string ExecuteSegmentation(MRIImage file)
+        public bool ExecuteSegmentation(MRIImage file)
         {
-            var processInfo = new ProcessStartInfo("cmd.exe", @"/c D:\ITSGFork\StudProjects\team00\WebApp\MedHelp\Commands\HeartMri.bat")
+            var processInfo = new ProcessStartInfo("cmd.exe", @"/c D:\Dissertation\Application\MedHelp\Commands\HeartMri.bat")
             {
                 CreateNoWindow = true,
                 UseShellExecute = false
@@ -65,13 +67,13 @@ namespace MedHelp.Infrastructure
 
             process.Start();
 
-            process.WaitForExit();
+            process.WaitForExit(120000);
             if (process.HasExited)
             {
                 process.Close();
-                return "window_seg_pat10__segmentation_niftynet.nii.gz";
+                return true;
             }
-            return null;
+            return false;
         }
 
         public string LoadMriFromPath(string fullPath)
@@ -83,6 +85,57 @@ namespace MedHelp.Infrastructure
                 throw new FileNotFoundException();
             }
             return base64;
+        }
+
+        public async Task<MRIImage> SaveImageForSegmentation(HttpPostedFileBase file, string algorithmPath, string localPath)
+        {
+            var mriParentImage = new MRIImage
+            {
+                Name = Path.GetFileName(file.FileName),
+                UploadedDate = DateTime.Now,
+                Image = "placeholder"
+            };
+            var segmentPath = Path.Combine(algorithmPath, "testing_axial_full_pat10.nii.gz");
+            file.SaveAs(segmentPath);
+            await SaveMri(mriParentImage);
+
+            var localSavePath = Path.Combine(localPath, $"{mriParentImage.Id}.nii.gz");
+            mriParentImage.Image = localSavePath;
+            await EditMri(mriParentImage);
+            file.SaveAs(localSavePath);
+
+            //Pre save segmentation
+            var mriSegmentImage = new MRIImage
+            {
+                Name = $"Hearth - {mriParentImage.Name}",
+                FullScanId = mriParentImage.Id,
+                UploadedDate = null,
+                Image = "placeholder"
+            };
+            await SaveMri(mriSegmentImage);
+
+            return mriParentImage;
+        }
+
+        public async Task SaveSegmentedImage(MRIImage parentImage, string resultPath, string localPath)
+        {
+            var mriSegmentImage = new MRIImage
+            {
+                Name = $"Hearth - {parentImage.Name}",
+                FullScanId = parentImage.Id,
+                UploadedDate = DateTime.Now,
+                Id = parentImage.MRIImage1.First().Id
+            };
+            using (db = new Entities())
+            {
+                var filePath = Path.Combine(resultPath, "window_seg_pat10__segmentation_niftynet.nii.gz");
+                byte[] stream = File.ReadAllBytes(filePath);
+
+                var newLocalPath = Path.Combine(localPath, $"{mriSegmentImage.Id}.nii.gz");
+                mriSegmentImage.Image = newLocalPath;
+                await EditMri(mriSegmentImage);
+                File.WriteAllBytes(newLocalPath, stream);
+            }
         }
     }
 }

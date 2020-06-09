@@ -34,7 +34,14 @@
                     @Html.DisplayFor(modelItem => item.Id)
                 </td>
                 <td>
-                    @Html.ActionLink(@Html.DisplayFor(modelItem => item.Name).ToHtmlString(), "Details", new { id = item.Id })
+                    @if (item.FullScanId != null && item.UploadedDate == null)
+                    {
+                        @Html.DisplayFor(modelItem => item.Name)
+                    }
+                    else
+                    {
+                        @Html.ActionLink(@Html.DisplayFor(modelItem => item.Name).ToHtmlString(), "Details", new { id = item.Id })
+                    }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.UploadedDate)
@@ -50,7 +57,14 @@
                     }
                 </td>
                 <td>
-                    @Html.ActionLink("Download", "Download", new { id = item.Id }) |  @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @if (item.FullScanId != null && item.UploadedDate == null)
+                    {
+                        <text>Pending Segmentation(Please wait)</text>
+                    }
+                    else
+                    {
+                        <text>@Html.ActionLink("Download", "Download", new { id = item.Id }) | @Html.ActionLink("Delete", "Delete", new { id = item.Id })</text>
+                    }
                 </td>
             </tr>
         }

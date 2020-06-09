@@ -11,7 +11,7 @@ namespace MedHelp.Models
         public string Name { get; set; }
 
         [Display(Name = "Uploaded Date")]
-        public DateTime UploadedDate { get; set; }
+        public DateTime? UploadedDate { get; set; }
 
         public int? FullScanId { get; set; }
 
