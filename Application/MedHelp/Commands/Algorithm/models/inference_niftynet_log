@@ -2944,3 +2944,352 @@ INFO:niftynet:2020-06-13 21:32:16,005: stopping -- event handler: OutputInterpre
 INFO:niftynet:2020-06-13 21:32:16,005: cleaning up...
 INFO:niftynet:2020-06-13 21:32:16,005: stopping sampling threads
 INFO:niftynet:2020-06-13 21:32:16,055: SegmentationApplication stopped (time in second 53.46).
+INFO:niftynet:2020-06-24 15:27:34,581: set CUDA_VISIBLE_DEVICES to 0
+INFO:niftynet:2020-06-24 15:27:34,605: set initial_iter to 383 based on checkpoints
+INFO:niftynet:2020-06-24 15:27:34,606: starting segmentation application
+INFO:niftynet:2020-06-24 15:27:34,606: starting segmentation application
+INFO:niftynet:2020-06-24 15:27:34,606: `csv_file = ` not found, writing to "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv" instead.
+INFO:niftynet:2020-06-24 15:27:34,606: `csv_file = ` not found, writing to "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv" instead.
+INFO:niftynet:2020-06-24 15:27:34,607: Overwriting existing: "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv".
+INFO:niftynet:2020-06-24 15:27:34,607: Overwriting existing: "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv".
+INFO:niftynet:2020-06-24 15:27:34,607: [test-images] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv
+INFO:niftynet:2020-06-24 15:27:34,607: [test-images] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv
+INFO:niftynet:2020-06-24 15:27:34,614: `csv_file = ` not found, writing to "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-images.csv" instead.
+INFO:niftynet:2020-06-24 15:27:34,614: [train-images] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-images.csv
+INFO:niftynet:2020-06-24 15:27:34,614: [train-images] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-images.csv
+CRITICAL:niftynet:2020-06-24 15:27:34,615: no file matched based on this matcher: 
+
+Match file names and extract subject_ids from: 
+-- path to search: ('D:\\Dissertation\\Application\\MedHelp\\Commands\\Algorithm\\training',)
+-- filename contains: ('training_axial_full_',)
+-- filename not contains: ('label',)
+
+CRITICAL:niftynet:2020-06-24 15:27:34,615: no file matched based on this matcher: 
+
+Match file names and extract subject_ids from: 
+-- path to search: ('D:\\Dissertation\\Application\\MedHelp\\Commands\\Algorithm\\training',)
+-- filename contains: ('training_axial_full_',)
+-- filename not contains: ('label',)
+
+WARNING:niftynet:2020-06-24 15:27:34,616: Ignoring input section: [train-images], due to the following error:
+WARNING:niftynet:2020-06-24 15:27:34,616: Ignoring input section: [train-images], due to the following error:
+WARNING:niftynet:2020-06-24 15:27:34,616: ValueError()
+WARNING:niftynet:2020-06-24 15:27:34,616: ValueError()
+INFO:niftynet:2020-06-24 15:27:34,626: `csv_file = ` not found, writing to "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-labels.csv" instead.
+INFO:niftynet:2020-06-24 15:27:34,627: [train-labels] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-labels.csv
+INFO:niftynet:2020-06-24 15:27:34,629: [train-labels] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-labels.csv
+CRITICAL:niftynet:2020-06-24 15:27:34,629: no file matched based on this matcher: 
+
+Match file names and extract subject_ids from: 
+-- path to search: ('D:\\Dissertation\\Application\\MedHelp\\Commands\\Algorithm\\training',)
+-- filename contains: ('training_axial_full_', '_label_A')
+
+WARNING:niftynet:2020-06-24 15:27:34,630: Ignoring input section: [train-labels], due to the following error:
+CRITICAL:niftynet:2020-06-24 15:27:34,630: no file matched based on this matcher: 
+
+Match file names and extract subject_ids from: 
+-- path to search: ('D:\\Dissertation\\Application\\MedHelp\\Commands\\Algorithm\\training',)
+-- filename contains: ('training_axial_full_', '_label_A')
+
+WARNING:niftynet:2020-06-24 15:27:34,630: ValueError()
+WARNING:niftynet:2020-06-24 15:27:34,630: Ignoring input section: [train-labels], due to the following error:
+WARNING:niftynet:2020-06-24 15:27:34,630: ValueError()
+WARNING:niftynet:2020-06-24 15:27:34,638: Loading from existing partitioning file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\dataset_split.csv, ignoring partitioning ratios.
+WARNING:niftynet:2020-06-24 15:27:34,638: Loading from existing partitioning file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\dataset_split.csv, ignoring partitioning ratios.
+INFO:niftynet:2020-06-24 15:27:34,643: 
+
+Number of subjects 1, input section names: ['subject_id', 'test-images', 'train-images', 'train-labels']
+Dataset partitioning:
+-- training 0 cases (0.00%),
+-- validation 0 cases (0.00%),
+-- inference 1 cases (100.00%).
+
+INFO:niftynet:2020-06-24 15:27:34,644: 
+
+Number of subjects 1, input section names: ['subject_id', 'test-images', 'train-images', 'train-labels']
+Dataset partitioning:
+-- training 0 cases (0.00%),
+-- validation 0 cases (0.00%),
+-- inference 1 cases (100.00%).
+
+INFO:niftynet:2020-06-24 15:27:34,735: Image reader: loading 1 subjects from sections ('test-images',) as input [image]
+INFO:niftynet:2020-06-24 15:27:34,735: Image reader: loading 1 subjects from sections ('test-images',) as input [image]
+INFO:niftynet:2020-06-24 15:27:34,739: normalisation histogram reference models ready for image:('test-images',)
+INFO:niftynet:2020-06-24 15:27:34,740: normalisation histogram reference models ready for image:('test-images',)
+INFO:niftynet:2020-06-24 15:27:40,207: reading size of preprocessed images
+WARNING:niftynet:2020-06-24 15:27:40,214: sampler queue_length should be larger than batch_size, defaulting to batch_size * 5.0 (10).
+INFO:niftynet:2020-06-24 15:27:40,268: initialised resize sampler {'image': (1, 144, 144, 144, 1, 1), 'image_location': (1, 7)} 
+INFO:niftynet:2020-06-24 15:27:40,283: using DenseVNet
+INFO:niftynet:2020-06-24 15:27:40,793: reading size of preprocessed images
+WARNING:niftynet:2020-06-24 15:27:40,799: sampler queue_length should be larger than batch_size, defaulting to batch_size * 5.0 (10).
+INFO:niftynet:2020-06-24 15:27:40,820: initialised resize sampler {'image': (1, 144, 144, 144, 1, 1), 'image_location': (1, 7)} 
+INFO:niftynet:2020-06-24 15:27:40,831: using DenseVNet
+INFO:niftynet:2020-06-24 15:27:42,357: Initialising Dataset from 1 subjects...
+INFO:niftynet:2020-06-24 15:27:42,936: Initialising Dataset from 1 subjects...
+INFO:niftynet:2020-06-24 15:28:06,884: Restoring parameters from D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\model.ckpt-383
+INFO:niftynet:2020-06-24 15:28:07,898: Restoring parameters from D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\model.ckpt-383
+INFO:niftynet:2020-06-24 15:29:04,189: cleaning up...
+INFO:niftynet:2020-06-24 15:29:04,237: stopping sampling threads
+INFO:niftynet:2020-06-24 15:29:05,374: cleaning up...
+INFO:niftynet:2020-06-24 15:29:05,380: stopping sampling threads
+INFO:niftynet:2020-06-25 09:42:10,535: set CUDA_VISIBLE_DEVICES to 0
+INFO:niftynet:2020-06-25 09:42:10,565: set initial_iter to 383 based on checkpoints
+INFO:niftynet:2020-06-25 09:42:10,566: set initial_iter to 383 based on checkpoints
+INFO:niftynet:2020-06-25 09:42:10,568: `csv_file = ` not found, writing to "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv" instead.
+INFO:niftynet:2020-06-25 09:42:10,568: starting segmentation application
+INFO:niftynet:2020-06-25 09:42:10,568: `csv_file = ` not found, writing to "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv" instead.
+INFO:niftynet:2020-06-25 09:42:10,568: Overwriting existing: "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv".
+INFO:niftynet:2020-06-25 09:42:10,569: [test-images] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv
+INFO:niftynet:2020-06-25 09:42:10,568: Overwriting existing: "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv".
+INFO:niftynet:2020-06-25 09:42:10,569: [test-images] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv
+INFO:niftynet:2020-06-25 09:42:10,587: `csv_file = ` not found, writing to "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-images.csv" instead.
+INFO:niftynet:2020-06-25 09:42:10,588: [train-images] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-images.csv
+CRITICAL:niftynet:2020-06-25 09:42:10,589: no file matched based on this matcher: 
+
+Match file names and extract subject_ids from: 
+-- path to search: ('D:\\Dissertation\\Application\\MedHelp\\Commands\\Algorithm\\training',)
+-- filename contains: ('training_axial_full_',)
+-- filename not contains: ('label',)
+
+CRITICAL:niftynet:2020-06-25 09:42:10,589: no file matched based on this matcher: 
+
+Match file names and extract subject_ids from: 
+-- path to search: ('D:\\Dissertation\\Application\\MedHelp\\Commands\\Algorithm\\training',)
+-- filename contains: ('training_axial_full_',)
+-- filename not contains: ('label',)
+
+WARNING:niftynet:2020-06-25 09:42:10,590: Ignoring input section: [train-images], due to the following error:
+WARNING:niftynet:2020-06-25 09:42:10,590: Ignoring input section: [train-images], due to the following error:
+WARNING:niftynet:2020-06-25 09:42:10,590: ValueError()
+WARNING:niftynet:2020-06-25 09:42:10,590: ValueError()
+INFO:niftynet:2020-06-25 09:42:10,614: `csv_file = ` not found, writing to "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-labels.csv" instead.
+INFO:niftynet:2020-06-25 09:42:10,614: `csv_file = ` not found, writing to "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-labels.csv" instead.
+INFO:niftynet:2020-06-25 09:42:10,615: [train-labels] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-labels.csv
+INFO:niftynet:2020-06-25 09:42:10,615: [train-labels] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-labels.csv
+CRITICAL:niftynet:2020-06-25 09:42:10,615: no file matched based on this matcher: 
+
+Match file names and extract subject_ids from: 
+-- path to search: ('D:\\Dissertation\\Application\\MedHelp\\Commands\\Algorithm\\training',)
+-- filename contains: ('_label_A', 'training_axial_full_')
+
+CRITICAL:niftynet:2020-06-25 09:42:10,615: no file matched based on this matcher: 
+
+Match file names and extract subject_ids from: 
+-- path to search: ('D:\\Dissertation\\Application\\MedHelp\\Commands\\Algorithm\\training',)
+-- filename contains: ('training_axial_full_', '_label_A')
+
+WARNING:niftynet:2020-06-25 09:42:10,616: Ignoring input section: [train-labels], due to the following error:
+WARNING:niftynet:2020-06-25 09:42:10,616: ValueError()
+WARNING:niftynet:2020-06-25 09:42:10,616: Ignoring input section: [train-labels], due to the following error:
+WARNING:niftynet:2020-06-25 09:42:10,621: ValueError()
+WARNING:niftynet:2020-06-25 09:42:10,625: Loading from existing partitioning file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\dataset_split.csv, ignoring partitioning ratios.
+WARNING:niftynet:2020-06-25 09:42:10,631: Loading from existing partitioning file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\dataset_split.csv, ignoring partitioning ratios.
+INFO:niftynet:2020-06-25 09:42:10,631: 
+
+Number of subjects 1, input section names: ['subject_id', 'test-images', 'train-images', 'train-labels']
+Dataset partitioning:
+-- training 0 cases (0.00%),
+-- validation 0 cases (0.00%),
+-- inference 1 cases (100.00%).
+
+INFO:niftynet:2020-06-25 09:42:10,639: 
+
+Number of subjects 1, input section names: ['subject_id', 'test-images', 'train-images', 'train-labels']
+Dataset partitioning:
+-- training 0 cases (0.00%),
+-- validation 0 cases (0.00%),
+-- inference 1 cases (100.00%).
+
+INFO:niftynet:2020-06-25 09:42:10,779: Image reader: loading 1 subjects from sections ('test-images',) as input [image]
+INFO:niftynet:2020-06-25 09:42:10,785: normalisation histogram reference models ready for image:('test-images',)
+INFO:niftynet:2020-06-25 09:42:10,787: normalisation histogram reference models ready for image:('test-images',)
+INFO:niftynet:2020-06-25 09:42:14,475: reading size of preprocessed images
+WARNING:niftynet:2020-06-25 09:42:14,478: sampler queue_length should be larger than batch_size, defaulting to batch_size * 5.0 (10).
+INFO:niftynet:2020-06-25 09:42:14,484: reading size of preprocessed images
+WARNING:niftynet:2020-06-25 09:42:14,486: sampler queue_length should be larger than batch_size, defaulting to batch_size * 5.0 (10).
+INFO:niftynet:2020-06-25 09:42:14,509: initialised resize sampler {'image': (1, 144, 144, 144, 1, 1), 'image_location': (1, 7)} 
+INFO:niftynet:2020-06-25 09:42:14,511: initialised resize sampler {'image': (1, 144, 144, 144, 1, 1), 'image_location': (1, 7)} 
+INFO:niftynet:2020-06-25 09:42:14,531: using DenseVNet
+INFO:niftynet:2020-06-25 09:42:14,531: using DenseVNet
+INFO:niftynet:2020-06-25 09:42:14,601: Initialising Dataset from 1 subjects...
+INFO:niftynet:2020-06-25 09:42:14,602: Initialising Dataset from 1 subjects...
+INFO:niftynet:2020-06-25 09:42:27,081: Restoring parameters from D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\model.ckpt-383
+INFO:niftynet:2020-06-25 09:42:27,710: Restoring parameters from D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\model.ckpt-383
+INFO:niftynet:2020-06-25 09:44:23,600: cleaning up...
+INFO:niftynet:2020-06-25 09:44:23,640: stopping sampling threads
+INFO:niftynet:2020-06-25 09:44:23,643: stopping sampling threads
+INFO:niftynet:2020-06-25 09:48:01,475: set CUDA_VISIBLE_DEVICES to 0
+INFO:niftynet:2020-06-25 09:48:01,490: set initial_iter to 383 based on checkpoints
+INFO:niftynet:2020-06-25 09:48:01,490: set initial_iter to 383 based on checkpoints
+INFO:niftynet:2020-06-25 09:48:01,492: starting segmentation application
+INFO:niftynet:2020-06-25 09:48:01,492: starting segmentation application
+INFO:niftynet:2020-06-25 09:48:01,492: `csv_file = ` not found, writing to "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv" instead.
+INFO:niftynet:2020-06-25 09:48:01,492: `csv_file = ` not found, writing to "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv" instead.
+INFO:niftynet:2020-06-25 09:48:01,492: Overwriting existing: "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv".
+INFO:niftynet:2020-06-25 09:48:01,492: Overwriting existing: "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv".
+INFO:niftynet:2020-06-25 09:48:01,494: [test-images] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv
+INFO:niftynet:2020-06-25 09:48:01,509: `csv_file = ` not found, writing to "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-images.csv" instead.
+INFO:niftynet:2020-06-25 09:48:01,509: [train-images] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-images.csv
+INFO:niftynet:2020-06-25 09:48:01,509: [train-images] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-images.csv
+CRITICAL:niftynet:2020-06-25 09:48:01,510: no file matched based on this matcher: 
+
+Match file names and extract subject_ids from: 
+-- path to search: ('D:\\Dissertation\\Application\\MedHelp\\Commands\\Algorithm\\training',)
+-- filename contains: ('training_axial_full_',)
+-- filename not contains: ('label',)
+
+CRITICAL:niftynet:2020-06-25 09:48:01,510: no file matched based on this matcher: 
+
+Match file names and extract subject_ids from: 
+-- path to search: ('D:\\Dissertation\\Application\\MedHelp\\Commands\\Algorithm\\training',)
+-- filename contains: ('training_axial_full_',)
+-- filename not contains: ('label',)
+
+WARNING:niftynet:2020-06-25 09:48:01,512: Ignoring input section: [train-images], due to the following error:
+WARNING:niftynet:2020-06-25 09:48:01,512: Ignoring input section: [train-images], due to the following error:
+WARNING:niftynet:2020-06-25 09:48:01,512: ValueError()
+WARNING:niftynet:2020-06-25 09:48:01,512: ValueError()
+INFO:niftynet:2020-06-25 09:48:01,532: `csv_file = ` not found, writing to "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-labels.csv" instead.
+INFO:niftynet:2020-06-25 09:48:01,533: [train-labels] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-labels.csv
+INFO:niftynet:2020-06-25 09:48:01,533: [train-labels] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-labels.csv
+CRITICAL:niftynet:2020-06-25 09:48:01,533: no file matched based on this matcher: 
+
+Match file names and extract subject_ids from: 
+-- path to search: ('D:\\Dissertation\\Application\\MedHelp\\Commands\\Algorithm\\training',)
+-- filename contains: ('_label_A', 'training_axial_full_')
+
+WARNING:niftynet:2020-06-25 09:48:01,534: Ignoring input section: [train-labels], due to the following error:
+WARNING:niftynet:2020-06-25 09:48:01,534: ValueError()
+WARNING:niftynet:2020-06-25 09:48:01,548: Loading from existing partitioning file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\dataset_split.csv, ignoring partitioning ratios.
+WARNING:niftynet:2020-06-25 09:48:01,549: Loading from existing partitioning file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\dataset_split.csv, ignoring partitioning ratios.
+INFO:niftynet:2020-06-25 09:48:01,554: 
+
+Number of subjects 1, input section names: ['subject_id', 'test-images', 'train-images', 'train-labels']
+Dataset partitioning:
+-- training 0 cases (0.00%),
+-- validation 0 cases (0.00%),
+-- inference 1 cases (100.00%).
+
+INFO:niftynet:2020-06-25 09:48:01,554: 
+
+Number of subjects 1, input section names: ['subject_id', 'test-images', 'train-images', 'train-labels']
+Dataset partitioning:
+-- training 0 cases (0.00%),
+-- validation 0 cases (0.00%),
+-- inference 1 cases (100.00%).
+
+INFO:niftynet:2020-06-25 09:48:01,652: Image reader: loading 1 subjects from sections ('test-images',) as input [image]
+INFO:niftynet:2020-06-25 09:48:01,652: Image reader: loading 1 subjects from sections ('test-images',) as input [image]
+INFO:niftynet:2020-06-25 09:48:01,657: normalisation histogram reference models ready for image:('test-images',)
+INFO:niftynet:2020-06-25 09:48:04,972: reading size of preprocessed images
+WARNING:niftynet:2020-06-25 09:48:04,974: sampler queue_length should be larger than batch_size, defaulting to batch_size * 5.0 (10).
+INFO:niftynet:2020-06-25 09:48:04,975: reading size of preprocessed images
+WARNING:niftynet:2020-06-25 09:48:04,977: sampler queue_length should be larger than batch_size, defaulting to batch_size * 5.0 (10).
+INFO:niftynet:2020-06-25 09:48:04,995: initialised resize sampler {'image': (1, 144, 144, 144, 1, 1), 'image_location': (1, 7)} 
+INFO:niftynet:2020-06-25 09:48:04,995: initialised resize sampler {'image': (1, 144, 144, 144, 1, 1), 'image_location': (1, 7)} 
+INFO:niftynet:2020-06-25 09:48:05,015: using DenseVNet
+INFO:niftynet:2020-06-25 09:48:05,015: using DenseVNet
+INFO:niftynet:2020-06-25 09:48:05,080: Initialising Dataset from 1 subjects...
+INFO:niftynet:2020-06-25 09:48:05,081: Initialising Dataset from 1 subjects...
+INFO:niftynet:2020-06-25 09:48:14,267: Restoring parameters from D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\model.ckpt-383
+INFO:niftynet:2020-06-25 09:48:14,281: Restoring parameters from D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\model.ckpt-383
+INFO:niftynet:2020-06-25 09:48:41,459: cleaning up...
+INFO:niftynet:2020-06-25 09:48:41,569: stopping sampling threads
+INFO:niftynet:2020-06-25 09:48:42,495: cleaning up...
+INFO:niftynet:2020-06-25 09:48:42,596: stopping sampling threads
+INFO:niftynet:2020-06-25 11:00:36,957: set CUDA_VISIBLE_DEVICES to 0
+INFO:niftynet:2020-06-25 11:00:36,958: set CUDA_VISIBLE_DEVICES to 0
+INFO:niftynet:2020-06-25 11:00:36,982: set initial_iter to 383 based on checkpoints
+INFO:niftynet:2020-06-25 11:00:36,983: set initial_iter to 383 based on checkpoints
+INFO:niftynet:2020-06-25 11:00:36,986: starting segmentation application
+INFO:niftynet:2020-06-25 11:00:36,986: starting segmentation application
+INFO:niftynet:2020-06-25 11:00:36,986: `csv_file = ` not found, writing to "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv" instead.
+INFO:niftynet:2020-06-25 11:00:36,987: `csv_file = ` not found, writing to "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv" instead.
+INFO:niftynet:2020-06-25 11:00:36,987: Overwriting existing: "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv".
+INFO:niftynet:2020-06-25 11:00:36,989: [test-images] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv
+INFO:niftynet:2020-06-25 11:00:36,988: Overwriting existing: "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv".
+INFO:niftynet:2020-06-25 11:00:36,990: [test-images] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\test-images.csv
+INFO:niftynet:2020-06-25 11:00:37,015: `csv_file = ` not found, writing to "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-images.csv" instead.
+INFO:niftynet:2020-06-25 11:00:37,017: [train-images] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-images.csv
+CRITICAL:niftynet:2020-06-25 11:00:37,019: no file matched based on this matcher: 
+
+Match file names and extract subject_ids from: 
+-- path to search: ('D:\\Dissertation\\Application\\MedHelp\\Commands\\Algorithm\\training',)
+-- filename contains: ('training_axial_full_',)
+-- filename not contains: ('label',)
+
+WARNING:niftynet:2020-06-25 11:00:37,023: Ignoring input section: [train-images], due to the following error:
+WARNING:niftynet:2020-06-25 11:00:37,024: ValueError()
+INFO:niftynet:2020-06-25 11:00:37,027: `csv_file = ` not found, writing to "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-images.csv" instead.
+INFO:niftynet:2020-06-25 11:00:37,028: [train-images] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-images.csv
+CRITICAL:niftynet:2020-06-25 11:00:37,029: no file matched based on this matcher: 
+
+Match file names and extract subject_ids from: 
+-- path to search: ('D:\\Dissertation\\Application\\MedHelp\\Commands\\Algorithm\\training',)
+-- filename contains: ('training_axial_full_',)
+-- filename not contains: ('label',)
+
+WARNING:niftynet:2020-06-25 11:00:37,033: Ignoring input section: [train-images], due to the following error:
+WARNING:niftynet:2020-06-25 11:00:37,033: ValueError()
+INFO:niftynet:2020-06-25 11:00:37,052: `csv_file = ` not found, writing to "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-labels.csv" instead.
+INFO:niftynet:2020-06-25 11:00:37,053: [train-labels] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-labels.csv
+INFO:niftynet:2020-06-25 11:00:37,055: `csv_file = ` not found, writing to "D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-labels.csv" instead.
+CRITICAL:niftynet:2020-06-25 11:00:37,055: no file matched based on this matcher: 
+
+Match file names and extract subject_ids from: 
+-- path to search: ('D:\\Dissertation\\Application\\MedHelp\\Commands\\Algorithm\\training',)
+-- filename contains: ('_label_A', 'training_axial_full_')
+
+WARNING:niftynet:2020-06-25 11:00:37,055: Ignoring input section: [train-labels], due to the following error:
+INFO:niftynet:2020-06-25 11:00:37,056: [train-labels] search file folders, writing csv file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\train-labels.csv
+WARNING:niftynet:2020-06-25 11:00:37,057: ValueError()
+CRITICAL:niftynet:2020-06-25 11:00:37,059: no file matched based on this matcher: 
+
+Match file names and extract subject_ids from: 
+-- path to search: ('D:\\Dissertation\\Application\\MedHelp\\Commands\\Algorithm\\training',)
+-- filename contains: ('_label_A', 'training_axial_full_')
+
+WARNING:niftynet:2020-06-25 11:00:37,059: Ignoring input section: [train-labels], due to the following error:
+WARNING:niftynet:2020-06-25 11:00:37,059: ValueError()
+WARNING:niftynet:2020-06-25 11:00:37,090: Loading from existing partitioning file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\dataset_split.csv, ignoring partitioning ratios.
+WARNING:niftynet:2020-06-25 11:00:37,097: Loading from existing partitioning file D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\dataset_split.csv, ignoring partitioning ratios.
+INFO:niftynet:2020-06-25 11:00:37,105: 
+
+Number of subjects 1, input section names: ['subject_id', 'test-images', 'train-images', 'train-labels']
+Dataset partitioning:
+-- training 0 cases (0.00%),
+-- validation 0 cases (0.00%),
+-- inference 1 cases (100.00%).
+
+INFO:niftynet:2020-06-25 11:00:37,112: 
+
+Number of subjects 1, input section names: ['subject_id', 'test-images', 'train-images', 'train-labels']
+Dataset partitioning:
+-- training 0 cases (0.00%),
+-- validation 0 cases (0.00%),
+-- inference 1 cases (100.00%).
+
+INFO:niftynet:2020-06-25 11:00:37,227: Image reader: loading 1 subjects from sections ('test-images',) as input [image]
+INFO:niftynet:2020-06-25 11:00:37,236: normalisation histogram reference models ready for image:('test-images',)
+INFO:niftynet:2020-06-25 11:00:37,237: normalisation histogram reference models ready for image:('test-images',)
+INFO:niftynet:2020-06-25 11:00:41,588: reading size of preprocessed images
+WARNING:niftynet:2020-06-25 11:00:41,595: sampler queue_length should be larger than batch_size, defaulting to batch_size * 5.0 (10).
+INFO:niftynet:2020-06-25 11:00:41,618: reading size of preprocessed images
+WARNING:niftynet:2020-06-25 11:00:41,628: sampler queue_length should be larger than batch_size, defaulting to batch_size * 5.0 (10).
+INFO:niftynet:2020-06-25 11:00:41,634: initialised resize sampler {'image': (1, 144, 144, 144, 1, 1), 'image_location': (1, 7)} 
+INFO:niftynet:2020-06-25 11:00:41,647: initialised resize sampler {'image': (1, 144, 144, 144, 1, 1), 'image_location': (1, 7)} 
+INFO:niftynet:2020-06-25 11:00:41,659: using DenseVNet
+INFO:niftynet:2020-06-25 11:00:41,662: using DenseVNet
+INFO:niftynet:2020-06-25 11:00:41,729: Initialising Dataset from 1 subjects...
+INFO:niftynet:2020-06-25 11:00:41,729: Initialising Dataset from 1 subjects...
+INFO:niftynet:2020-06-25 11:00:52,156: Restoring parameters from D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\model.ckpt-383
+INFO:niftynet:2020-06-25 11:00:53,353: Restoring parameters from D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\models\model.ckpt-383
+INFO:niftynet:2020-06-25 11:01:22,022: cleaning up...
+INFO:niftynet:2020-06-25 11:01:22,025: stopping sampling threads
+WARNING:niftynet:2020-06-25 11:01:55,111: File D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\testing\window_seg_pat10__segmentation_niftynet.nii.gz exists, overwriting the file.
+INFO:niftynet:2020-06-25 11:01:56,088: Saved D:\Dissertation\Application\MedHelp\Commands\Algorithm\models\testing\window_seg_pat10__segmentation_niftynet.nii.gz
+INFO:niftynet:2020-06-25 11:01:56,113: inference iter 0,  (52.115104s)
+INFO:niftynet:2020-06-25 11:01:56,114: stopping -- event handler: OutputInterpreter.
+INFO:niftynet:2020-06-25 11:01:56,114: cleaning up...
+INFO:niftynet:2020-06-25 11:01:56,115: stopping sampling threads
+INFO:niftynet:2020-06-25 11:01:56,206: SegmentationApplication stopped (time in second 65.08).

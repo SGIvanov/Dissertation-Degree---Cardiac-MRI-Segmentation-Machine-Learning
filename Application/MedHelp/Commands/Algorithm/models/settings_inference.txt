@@ -1,4 +1,4 @@
-Input params at 2020-06-13 21:31:14.
+Input params at 2020-06-25 11:00:36.
 [CUSTOM]
 -- num_classes: 3
 -- output_prob: False
@@ -13,12 +13,12 @@ Input params at 2020-06-13 21:31:14.
 -- do_mixup: False
 -- mixup_alpha: 0.2
 -- mix_match: False
--- label: ('train-labels',)
 -- image: ('test-images',)
--- inferred: ()
--- value: ()
--- weight: ()
+-- label: ('train-labels',)
 -- sampler: ()
+-- inferred: ()
+-- weight: ()
+-- value: ()
 -- name: net_segment
 [CONFIG_FILE]
 -- path: D:\Dissertation\Application\MedHelp\Commands\Algorithm\inference-config.ini
